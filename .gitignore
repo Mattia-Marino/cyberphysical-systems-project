@@ -3,6 +3,10 @@
 
 ### Excluding the output of the LaTeX build process
 *.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
 
 ### Excluding eventual temporary files produced by VIM
 *~
