@@ -1,0 +1,9 @@
+### Excluding PDF files produced by LaTeX
+*.pdf
+
+### Excluding the output of the LaTeX build process
+*.aux
+
+### Excluding eventual temporary files produced by VIM
+*~
+*.swp
