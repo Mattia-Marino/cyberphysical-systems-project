@@ -1,0 +1,47 @@
+Una Rete di Petri è un formalismo matematico per la modellazione di sistemi
+distribuiti discreti. In termini più semplici, è un modo per descrivere come
+funzionano i sistemi in cui accadono eventi discreti e concorrenti, ovvero
+eventi che possono accadere in parallelo. Immagina un sistema con diverse
+attività che possono svolgersi contemporaneamente o in sequenza, con risorse
+che vengono utilizzate e rilasciate: una Rete di Petri fornisce un linguaggio
+grafico e matematico per rappresentare e analizzare questo tipo di sistemi.
+
+\subsection{Componenti Chiave di una Rete di Petri}
+Una Rete di Petri è rappresentata graficamente come un grafo bipartito composto
+da quattro elementi fondamentali:
+\begin{itemize}
+    \item \textbf{Posti:} Rappresentati da cerchi, i posti rappresentano le
+          condizioni o gli stati del sistema. Ad esempio, un posto potrebbe
+          rappresentare la disponibilità di una risorsa, lo stato di un processo
+          (attivo, inattivo, in attesa), o una condizione logica (vero/falso).
+    \item \textbf{Transizioni:} Rappresentate da rettangoli o barre,
+          le transizioni rappresentano gli eventi o le azioni che possono
+          accadere nel sistema. L'attivazione di una transizione causa un
+          cambiamento nello stato del sistema.
+    \item \textbf{Archi:} Rappresentati da frecce dirette, gli archi connettono
+          i posti alle transizioni e le transizioni ai posti, definendo le
+          relazioni di causa-effetto tra stati ed eventi. Un arco che va da un posto a
+          una transizione indica una pre-condizione per l'attivazione della transizione;
+          un arco che va da una transizione a un posto indica un effetto post-attivazione
+          della transizione.
+    \item \textbf{Marcatura:} La marcatura di una rete è la distribuzione di
+          token (generalmente rappresentati da punti neri) all'interno dei posti.
+          La marcatura rappresenta lo stato corrente del sistema. Il numero di
+          token in un posto indica quante "unità" di quella condizione sono presenti.
+\end{itemize}
+
+\subsection{Funzionamento di una Rete di Petri}
+L'evoluzione di una Rete di Petri è regolata da una semplice regola di scatto (firing):
+\begin{itemize}
+    \item \textbf{Abilitazione:} Una transizione è abilitata (può scattare) se
+          tutti i posti di input (i posti da cui partono archi verso la transizione)
+          contengono almeno un token.
+    \item \textbf{Scatto:} Quando una transizione abilitata scatta, vengono rimossi un
+          token da ciascun posto di input e viene aggiunto un token a ciascun
+          posto di output (i posti a cui arrivano archi dalla transizione).
+\end{itemize}
+
+Nelle Reti di Petri, l'enfasi è posta sulle regole che governano le transizioni
+tra i vari stati, piuttosto che sugli stati stessi. Questo approccio rende il modello
+più versatile e adatto a rappresentare sistemi dinamici e complessi, dove il numero di
+stati possibili può essere indefinito o teoricamente infinito.
