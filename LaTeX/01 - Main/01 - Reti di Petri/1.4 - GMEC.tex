@@ -1,0 +1,69 @@
+Le Generalized Mutual Exclusion Constraints (GMEC), o Vincoli Generalizzati di Mutua Esclusione, sono un potente formalismo utilizzato nell'analisi e nel controllo delle Reti di Petri, specialmente in contesti dove è necessario garantire che certe combinazioni di marcature non si verifichino mai. In altre parole, le GMEC definiscono insiemi di posti la cui somma di token non deve superare una determinata soglia. Questo è particolarmente utile per modellare risorse condivise, vincoli di capacità, o condizioni di sicurezza in sistemi concorrenti.
+
+Una GMEC è espressa tipicamente come una disuguaglianza lineare sulla marcatura \textit{M} della Rete di Petri:
+
+\begin{equation}
+    \sum_{p \in P} w_{p} \cdot M(p) \leq k
+\end{equation}
+
+dove:
+
+\begin{itemize}
+    \item $P$ è un insieme di posti della rete.
+    \item $w_{p}$ è un peso non negativo associato al posto p.
+    \item $M(p)$ è il numero di token nel posto p nella marcatura M.
+    \item $k$ è una costante intera non negativa che rappresenta la capacità o la soglia massima.
+\end{itemize}
+
+Volendo scrivere il tutto in forma vettoriale e definendo il vettore $w$ come il vettore dei pesi associati ai posti, e il vettore $M$ come il vettore delle marcature, possiamo scrivere la disuguaglianza come:
+
+\begin{equation}
+    w^{T} \times M \leq k
+\end{equation}
+
+\subsection{Posto monitor}
+Il concetto di "posto monitor", o "supervisore", è strettamente legato all'implementazione delle GMEC nelle Reti di Petri. L'obiettivo è di trasformare una disuguaglianza (la GMEC) in un'uguaglianza, introducendo un nuovo posto, il posto monitor, che "monitora" il rispetto del vincolo.
+
+Data una GMEC scritta in forma vettoriale:
+
+\begin{equation}
+    w^{T} \times M \leq k
+\end{equation}
+
+Introduciamo un nuovo posto, che chiameremo $p_{m}$ (posto monitor), che avrà come matrice di incidenza un vettore riga  di lunghezza \textit{n} (dove \textit{n} è il numero di transizioni della rete):
+
+\begin{equation}
+    C_{m} = -w^{T} \times C
+\end{equation}
+
+Da tale vettore è possibile quindi capire come il posto monitor si colleghi al resto della rete già esistente. Inoltre, per calcolare la marcatura iniziale del posto monitor:
+
+\begin{equation}
+    M(p_{m}) = k - w^{T} \times M_{0}
+\end{equation}
+
+\subsection{GMEC multiple}
+Qualora ci fossero GMEC multiple, come nel caso ivi preso in esame, è possibile calcolare rapidamente le matrici di incidenza dei posti monitor associati a ciascuna GMEC e le relative marcature iniziali utilizzando delle semplici operazioni matriciali.
+
+Considerando quindi un inzieme di GMEC, è possibile esprimere i loro vettori peso come righe di una matrice $W$:
+
+\begin{equation}
+    W = \begin{bmatrix}
+        w_{1} \\
+        w_{2} \\
+        \vdots \\
+        w_{m}
+    \end{bmatrix}
+\end{equation}
+
+L'equazione quindi diventa:
+
+\begin{equation}
+    C_{m} = -W \times C
+\end{equation}
+
+Similmente, esprimendo le costanti $k$ come un vettore colonna $K$, è possibile calcolare le marcature iniziali dei posti monitor come:
+
+\begin{equation}
+    M(p_{m}) = K - W \times M_{0}
+\end{equation}
