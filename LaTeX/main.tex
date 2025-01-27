@@ -170,7 +170,7 @@
 	%pdfauthor={Giuseppe Silano},
 	%pdfsubject={Lo scopo di questo template è quello di favorire gli studenti, di UniSannio e non, nella scrittura della propria tesi di laurea in LaTeX},
 	%pdfkeywords={UniSannio, tesi, template, LaTeX}} 
-    pdftitle={Tesi di Laurea di Mattia Marino},
+    pdftitle={Progetto di Sistemi Cyberfisici di Mattia Marino},
     pdfauthor={Mattia Marino}
 }
 
@@ -386,7 +386,7 @@
 \renewcommand{\thesection}{\arabic{section}}  %consigliato per migliorare i numeri di equazione nell'introduzione
 
 %Frontespizio e dedica della tesi
-\input{frontespizio}
+\input{00 - Intro/00 - Frontespizio}
 
 %Numerazione delle prime pagine in numeri romani
 \pagenumbering{roman}
@@ -403,8 +403,8 @@
 %Sommario ed introduzione della tesi che, per come spiegato in precedenza, sono descritti in due
 %file tex a parte
 %\input{sommario}
-\input{introduzione}
-
+\input{00 - Intro/01 - Introduzione}
+\input{00 - Intro/02 - Problem Statement}
 
 
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}} %si torna alle formule numerate come da default
