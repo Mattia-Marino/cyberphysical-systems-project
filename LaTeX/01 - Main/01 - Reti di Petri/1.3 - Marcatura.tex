@@ -1,0 +1,7 @@
+La marcatura è un altro concetto centrale nelle Reti di Petri, in quanto rappresenta lo stato del sistema modellato in un dato istante. In termini semplici, la marcatura indica la distribuzione dei \textit{token} (generalmente rappresentati da punti neri) all'interno dei \textit{posti} della rete.
+
+Formalmente, una marcatura \textit{M} di una Rete di Petri è una funzione che associa ad ogni posto \textit{p} un numero intero non negativo, \textit{M(p)}. Questo numero rappresenta il numero di token presenti nel posto \textit{p}. Possiamo rappresentare la marcatura come un vettore, dove l'i-esimo elemento del vettore corrisponde al numero di token nel posto i-esimo.
+
+Graficamente, i token sono disegnati all'interno dei cerchi che rappresentano i posti. Se un posto non contiene token, il suo cerchio è vuoto. Se un posto contiene più di un token, il numero di token è solitamente indicato all'interno del cerchio. Generalmente il numero di token in un posto è rappresentato disegnando un cerchio con un numero di punti neri uguale al numero di token presenti, ma in caso in cui tale numero sia elevato è anche possibile scrivere semplicemente il numero.
+
+La marcatura iniziale, spesso indicata con \textit{M0}, rappresenta lo stato di partenza del sistema. È la marcatura da cui inizia l'esecuzione della rete. La scelta della marcatura iniziale è cruciale, poiché determina il comportamento che la rete può esibire. Come spiegato nella sezione \ref{sec:1.4} è anche possibile che la marcatura iniziale scelta sia illegale per via dei vincoli imposti dalla rete.
