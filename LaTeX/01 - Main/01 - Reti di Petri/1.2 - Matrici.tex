@@ -1,0 +1,33 @@
+Le matrici di pre e post-incidenza, insieme alla matrice di incidenza, sono strumenti matematici fondamentali per rappresentare e analizzare le Reti di Petri in modo formale. Permettono di descrivere le connessioni tra posti e transizioni e di studiare il comportamento dinamico della rete attraverso calcoli matriciali.
+
+\subsection{Matrice di Pre-incidenza}
+La matrice di pre-incidenza, indicata con \textit{Pre}, descrive le connessioni che vanno dai posti alle transizioni. È una matrice \textit{n x m}, dove \textit{n} è il numero di posti e \textit{m} è il numero di transizioni nella rete. L'elemento \textit{Pre(p, t)} della matrice indica il numero di archi che vanno dal posto \textit{p} alla transizione \textit{t}. In altre parole, rappresenta il numero di token che devono essere presenti nel posto p affinché la transizione t sia abilitata a scattare.
+
+\begin{itemize}
+    \item Se \textit{Pre(p, t) = 0}, non esiste un arco che connette il posto \textit{p} alla transizione \textit{t}.
+    \item Se \textit{Pre(p, t) = 1}, esiste un singolo arco che connette il posto \textit{p} alla transizione \textit{t}.
+    \item Se \textit{Pre(p, t) > 1}, esistono più archi (archi multipli) che connettono il posto \textit{p} alla transizione \textit{t}.
+\end{itemize}
+
+\subsection{Matrice di Post-incidenza}
+La matrice di post-incidenza, indicata con \textit{Post}, descrive le connessioni che vanno dalle transizioni ai posti. È anch'essa una matrice \textit{n x m}, con \textit{n} posti e \textit{m} transizioni. L'elemento \textit{Post(p, t)} indica il numero di archi che vanno dalla transizione \textit{t} al posto \textit{p}. Rappresenta il numero di token che vengono depositati nel posto \textit{p} quando la transizione \textit{t} scatta.
+
+\begin{itemize}
+    \item Se \textit{Post(p, t) = 0}, non esiste un arco che connette la transizione \textit{t} al posto \textit{p}.
+    \item Se \textit{Post(p, t) = 1}, esiste un singolo arco che connette la transizione \textit{t} al posto \textit{p}.
+    \item Se \textit{Post(p, t) > 1}, esistono più archi che connettono la transizione \textit{t} al posto \textit{p}.
+\end{itemize}
+
+\subsection{Matrice di Incidenza}
+La matrice di incidenza, indicata con \textit{C}, è derivata dalle matrici di pre e post-incidenza e fornisce una rappresentazione compatta delle variazioni di marcatura causate dallo scatto delle transizioni. Essa è definita come:
+\begin{equation}
+    C = Post - Pre
+\end{equation}
+
+L'elemento \textit{C(p, t)} della matrice di incidenza indica quindi la variazione netta del numero di token nel posto \textit{p} quando la transizione \textit{t} scatta:
+
+\begin{itemize}
+    \item Se \textit{C(p, t) > 0}, lo scatto di \textit{t} aggiunge token al posto \textit{p}.
+    \item Se \textit{C(p, t) < 0}, lo scatto di \textit{t} rimuove token dal posto \textit{p}.
+    \item Se \textit{C(p, t) = 0}, lo scatto di \textit{t} non influenza il numero di token nel posto \textit{p}.
+\end{itemize}
